@@ -1,10 +1,10 @@
-package com.netzme.test.model;
+package com.netzme.test.model.random;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-import lombok.Getter;
+import lombok.Data;
 
-@Getter
+@Data
 public class Result {
     @SerializedName("gender")
     @Expose

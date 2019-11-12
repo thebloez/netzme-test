@@ -1,4 +1,4 @@
-package com.netzme.test.model;
+package com.netzme.test.model.random;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;

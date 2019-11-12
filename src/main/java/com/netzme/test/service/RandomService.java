@@ -1,9 +1,9 @@
 package com.netzme.test.service;
 
-import com.netzme.test.APIConfig;
-import com.netzme.test.model.ResponseRetrofit;
-import com.netzme.test.model.Result;
+import com.netzme.test.model.ParseResponse;
+import com.netzme.test.model.random.ResponseRetrofit;
 import com.netzme.test.repository.RepositoryInterface;
+import com.netzme.test.util.APIConfig;
 import org.springframework.stereotype.Service;
 import retrofit2.Call;
 import retrofit2.Response;
@@ -25,14 +25,14 @@ public class RandomService implements APIConfig {
         repositoryInterface = retrofit.create(RepositoryInterface.class);
     }
 
-    public ResponseRetrofit randomUser() throws IOException {
+    public ParseResponse getRandom() {
         Call<ResponseRetrofit> retrofitCall = repositoryInterface.getResult();
-
-        Response<ResponseRetrofit> response = retrofitCall.execute();
-
-        if (!response.isSuccessful())
-            throw new IOException(response.errorBody() != null ? response.errorBody().string() : "Unknown Eroor");
-
-        return response.body();
+        Response<ResponseRetrofit> response = null;
+        try {
+            response = retrofitCall.execute();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return new ParseResponse(response.body());
     }
 }

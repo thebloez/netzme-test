@@ -1,4 +1,4 @@
-package com.netzme.test.model;
+package com.netzme.test.model.random;
 
 import lombok.Getter;
 
