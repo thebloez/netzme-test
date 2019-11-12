@@ -2,8 +2,11 @@ package com.netzme.test.model;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-import org.junit.platform.commons.util.ToStringBuilder;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
 
+@Getter
+@AllArgsConstructor
 public class Name {
     @SerializedName("title")
     @Expose
@@ -14,30 +17,6 @@ public class Name {
     @SerializedName("last")
     @Expose
     private String last;
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getFirst() {
-        return first;
-    }
-
-    public void setFirst(String first) {
-        this.first = first;
-    }
-
-    public String getLast() {
-        return last;
-    }
-
-    public void setLast(String last) {
-        this.last = last;
-    }
 
     @Override
     public String toString() {
